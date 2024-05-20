@@ -1,0 +1,42 @@
+INSERT INTO Proveedores (nombre, direccion, telefono, localidad, provincia, CUIT) 
+VALUES ('Deportes SA', 'Calle Falsa 123', 1234567890, 'Ciudad X', 'Provincia Y', 20304050607),
+('Sport Center', 'Avenida Principal 456', 987654321, 'Ciudad W', 'Provincia Z', 30705060809),
+('Equipos Deportivos', 'Boulevard Central 789', 1122334455, 'Ciudad V', 'Provincia U', 40906070810);
+
+ 
+
+INSERT INTO Productos (detalle, categoria, precio, cantidad, idProveedor) 
+VALUES ('Balón de fútbol', 'Deportes', 1500.00, 50, 1),
+('Raqueta de tenis', 'Deportes', 2500.00, 30, 2),
+ ('Pesas 5kg', 'Fitness', 300.00, 100, 3);
+
+ 
+
+INSERT INTO Clientes (nombre, direccion, telefono, localidad, provincia, DNI, cuentaCorriente) 
+VALUES ('Juan Pérez', 'Avenida Siempreviva 742', 1234567890, 'Ciudad Z', 'Provincia A', 30123456789, TRUE),
+('María García', 'Calle 123', 2345678901, 'Ciudad Y', 'Provincia B', 30234567890, FALSE),
+('Pedro López', 'Calle Principal 456', 3456789012, 'Ciudad X', 'Provincia C', 30345678901, TRUE);
+
+ 
+
+INSERT INTO Empleados (nombre, direccion, telefono, localidad, provincia, rol, CUIL) 
+VALUES ('Carlos Gómez', 'Calle 123', 987654321, 'Ciudad Y', 'Provincia B', 'Vendedor', 20123456789),
+('Ana Martínez', 'Avenida Central 456', 876543210, 'Ciudad W', 'Provincia C', 'Cajero', 20234567890),
+('Luis Fernández', 'Boulevard 789', 765432109, 'Ciudad V', 'Provincia D', 'Gerente', 20345678901);
+
+ 
+
+INSERT INTO Pedidos (fechaPedido, cantidad, idCliente, idEmpleado, idProducto) 
+VALUES ('2024-05-19', 10, 1, 1, 1),
+('2024-05-20', 5, 2, 2, 2),
+('2024-05-21', 15, 3, 3, 3);
+
+ 
+
+INSERT INTO Facturas (fechaFactura, idCliente, idProducto, cantidadProducto, valorUnitario, valorTotal) 
+VALUES ('2024-05-19', 1, 1, 10, 150.00, 1500.00),
+('2024-05-20', 2, 2, 5, 250.00, 1250.00),
+ ('2024-05-21', 3, 3, 15, 300.00, 4500.00);
+
+ 
+
