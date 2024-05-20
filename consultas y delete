@@ -1,0 +1,58 @@
+SELECT * FROM Proveedores;
+ 
+SELECT * FROM Productos;
+ 
+SELECT * FROM Clientes;
+ 
+SELECT * FROM Empleados;
+
+SELECT * FROM Pedidos;
+
+SELECT * FROM Facturas;
+
+--Consultar pedidos de un cliente específico
+
+SELECT * FROM Pedidos WHERE idCliente = 1;
+ 
+
+--Consultar facturas emitidas en una fecha específica
+
+SELECT * FROM Facturas WHERE fechaFactura = '2024-05-20';
+ 
+
+--Consultar productos suministrados por un proveedor específico
+
+SELECT * FROM Productos WHERE idProveedor = 1;
+ 
+
+
+
+--Borrado de Registros
+
+--Borrar un proveedor específico
+
+DELETE FROM Proveedores WHERE idProveedor = 1;
+ 
+
+--Borrar un producto específico
+
+DELETE FROM Productos WHERE idProducto = 1;
+ 
+
+--Borrar un cliente específico
+
+DELETE FROM Clientes WHERE idCliente = 1;
+ 
+
+--Borrar un empleado específico
+
+DELETE FROM Empleados WHERE idEmpleado = 1;
+ 
+
+--Borrar un pedido específico
+
+DELETE FROM Pedidos WHERE idPedido = 1;
+
+--Borrar una factura específica
+
+DELETE FROM Facturas WHERE idFactura = 1; 
