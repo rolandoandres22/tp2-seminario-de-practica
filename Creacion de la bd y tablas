@@ -1,0 +1,75 @@
+--creacion de la base de datos
+CREATE DATABASE sqdeportes;
+USE sqdeportes;
+
+-- Tabla Proveedores
+CREATE TABLE Proveedores (
+    idProveedor INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    direccion VARCHAR(255),
+    telefono INT(20),
+    localidad VARCHAR(100),
+    provincia VARCHAR(100),
+    CUIT INT(20)
+);
+
+-- Tabla Productos
+CREATE TABLE Productos (
+    idProducto INT AUTO_INCREMENT PRIMARY KEY,
+    detalle VARCHAR(100) NOT NULL,
+    categoria VARCHAR(100),
+    precio DECIMAL(10, 2) NOT NULL,
+    cantidad INT NOT NULL,
+    idProveedor INT,
+    FOREIGN KEY (idProveedor) REFERENCES Proveedores(idProveedor)
+);
+
+-- Tabla Clientes
+CREATE TABLE Clientes (
+    idCliente INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    direccion VARCHAR(255),
+    telefono INT(20),
+    localidad VARCHAR(100),
+    provincia VARCHAR(100),
+    DNI INT(20),
+    cuentaCorriente BOOLEAN
+);
+
+-- Tabla Empleados
+CREATE TABLE Empleados (
+    idEmpleado INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    direccion VARCHAR(255),
+    telefono INT(20),
+    localidad VARCHAR(100),
+    provincia VARCHAR(100),
+    rol VARCHAR(50),
+    CUIL INT(20)
+);
+
+-- Tabla Pedidos
+CREATE TABLE Pedidos (
+    idPedido INT AUTO_INCREMENT PRIMARY KEY,
+    fechaPedido DATE NOT NULL,
+    cantidad INT(50) NOT NULL,
+    idCliente INT,
+    idEmpleado INT,
+    idProducto INT,
+    FOREIGN KEY (idCliente) REFERENCES Clientes(idCliente),
+    FOREIGN KEY (idEmpleado) REFERENCES Empleados(idEmpleado),
+    FOREIGN KEY (idProducto) REFERENCES Productos(idProducto)
+);
+
+-- Tabla Facturas
+CREATE TABLE Facturas (
+    idFactura INT AUTO_INCREMENT PRIMARY KEY,
+    fechaFactura DATE NOT NULL,
+    idCliente INT,
+    idProducto INT,
+    cantidadProducto INT(50) NOT NULL,
+    valorunitario DECIMAL(10, 2) NOT NULL,
+    valortotal DECIMAL(10, 2) NOT NULL,
+    FOREIGN KEY (idCliente) REFERENCES Clientes(idCliente),
+    FOREIGN KEY (idProducto) REFERENCES Productos(idProducto)
+);
